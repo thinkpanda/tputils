@@ -18,19 +18,7 @@
 package thinkpanda.utils;
 
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 
 @SuppressWarnings("WeakerAccess")
 public class FileUtils {
@@ -100,7 +88,7 @@ public class FileUtils {
 
 	}
 
-	public static void writeStringToFile(String path, String encoding, String value) throws IOException {
+	public static void writeStringToFile(String path, @SuppressWarnings("SameParameterValue") String encoding, String value) throws IOException {
 
 		if (path==null) throw new IllegalArgumentException("path is null");
 
@@ -214,7 +202,7 @@ public class FileUtils {
 		return deleteFolder(folder, 0, true);
 	}	
 	
-	public static boolean  deleteFolder(File folder, boolean deleteSelf) {
+	public static boolean  deleteFolder(File folder, @SuppressWarnings("SameParameterValue") boolean deleteSelf) {
 		return deleteFolder(folder, 0, deleteSelf);
 	}
 

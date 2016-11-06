@@ -56,7 +56,7 @@ public class StdoutLogTest {
 
     }
 
-    private boolean startsWithDate(DateFormat df, String s, String delimiter) {
+    private boolean startsWithDate(DateFormat df, String s, @SuppressWarnings("SameParameterValue") String delimiter) {
         int index = s.indexOf(delimiter);
         String subStr;
         if (index==-1)

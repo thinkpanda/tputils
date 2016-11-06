@@ -21,7 +21,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import thinkpanda.utils.log.AbstractLogTest;
 import thinkpanda.utils.log.NullLogTest;
-import thinkpanda.utils.log.StdoutLog;
 import thinkpanda.utils.log.StdoutLogTest;
 
 /**

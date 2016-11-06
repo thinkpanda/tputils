@@ -45,7 +45,7 @@ public class StdoutLog extends AbstractLog {
         this(tag, true);
     }
 
-    public StdoutLog(String tag, boolean timestamp) {
+    public StdoutLog(String tag, @SuppressWarnings("SameParameterValue") boolean timestamp) {
         super(tag);
         dateFormat = new SimpleDateFormat("MM-dd kk:mm:ss.SSS");
         int pid = getPid();

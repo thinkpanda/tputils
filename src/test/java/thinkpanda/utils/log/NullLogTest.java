@@ -17,7 +17,6 @@
 
 package thinkpanda.utils.log;
 
-import org.assertj.core.api.StrictAssertions;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

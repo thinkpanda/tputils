@@ -23,14 +23,14 @@ package thinkpanda.utils;
 @SuppressWarnings("WeakerAccess")
 public class ByteUtils {
 
-    public static void fillInt(byte[] b, int offset, long value) {
+    public static void fillInt(byte[] b, int offset, @SuppressWarnings("SameParameterValue") long value) {
         b[offset] = (byte)((value >> 24) &0xff);
         b[offset+1] = (byte)((value >> 16) &0xff);
         b[offset+2] = (byte)((value >> 8) &0xff);
         b[offset+3] = (byte)(value &0xff);
     }
 
-    public static void fillShort(byte[] b, int offset, int value) {
+    public static void fillShort(byte[] b, int offset, @SuppressWarnings("SameParameterValue") int value) {
         b[offset] = (byte)((value >> 8) &0xff);
         b[offset+1] = (byte)(value &0xff);
     }

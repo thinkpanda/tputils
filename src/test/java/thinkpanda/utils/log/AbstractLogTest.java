@@ -33,7 +33,7 @@ public class AbstractLogTest {
 
         private List<String> journal = new ArrayList<>();
 
-        public TestAbstractLog(String tag) {
+        public TestAbstractLog(@SuppressWarnings("SameParameterValue") String tag) {
             super(tag);
         }
 
@@ -82,14 +82,14 @@ public class AbstractLogTest {
         tal.w("hello 2");
         tal.i("hello 3");
         tal.e("hello 4");
-        tal.e("hello 5", new RuntimeException("runtimeexception"));
+        tal.e("hello 5", new RuntimeException("runTimeException"));
 
         assertThat(tal.getJournal()).containsExactly(
                 "d||test||hello 1",
                 "w||test||hello 2",
                 "i||test||hello 3",
                 "e||test||hello 4",
-                "e||test||hello 5||runtimeexception"
+                "e||test||hello 5||runTimeException"
         );
 
     }
