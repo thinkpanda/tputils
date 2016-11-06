@@ -41,7 +41,7 @@ public class FileUtilsTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testReadFileToString_NullPath() throws IOException {
-        FileUtils.readFileToString(null, "utf-8");
+        FileUtils.readFileToString((String)null, "utf-8");
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -68,7 +68,7 @@ public class FileUtilsTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testReadFileToByteArray_NullPath() throws IOException {
-        FileUtils.readFileToByteArray(null);
+        FileUtils.readFileToByteArray((String)null);
     }
 
     @Test
@@ -242,6 +242,21 @@ public class FileUtilsTest {
     public void testDeleteFolder_NullPath() throws IOException {
 
         FileUtils.deleteFolder(null);
+
+    }
+
+    @Test
+    public void testCoptFile() throws IOException {
+
+        File src = new File(folder.getRoot(), "src");
+        File dest = new File(folder.getRoot(), "dest");
+        FileUtils.writeStringToFile(src.toString(), "utf-8", "Hello");
+
+        FileUtils.copyFile(dest.toString(), src.toString());
+
+        String result = FileUtils.readFileToString(dest.toString());
+
+        assertThat(result).isEqualTo("Hello");
 
     }
 

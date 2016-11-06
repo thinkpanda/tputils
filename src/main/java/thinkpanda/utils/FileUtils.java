@@ -35,8 +35,16 @@ public class FileUtils {
 
 		if (path==null) throw new IllegalArgumentException("path is null");
 
-		return readStreamToString(new FileInputStream(path), encoding);
-				
+		return readFileToString(new File(path), encoding);
+
+	}
+
+	public static String readFileToString(File file, String encoding) throws IOException {
+
+		if (file==null) throw new IllegalArgumentException("file is null");
+
+		return readStreamToString(new FileInputStream(file), encoding);
+
 	}
 
 	public static String readStreamToString(InputStream is) throws IOException {
@@ -69,7 +77,14 @@ public class FileUtils {
 
 		if (path==null) throw new IllegalArgumentException("path is null");
 
-		return readStreamToByteArray(new FileInputStream(path));
+		return readFileToByteArray(new File(path));
+	}
+
+	public static byte[] readFileToByteArray(File file) throws IOException {
+
+		if (file==null) throw new IllegalArgumentException("file is null");
+
+		return readStreamToByteArray(new FileInputStream(file));
 	}
 
 	public static byte[] readStreamToByteArray(InputStream is) throws IOException {
@@ -204,6 +219,22 @@ public class FileUtils {
 	
 	public static boolean  deleteFolder(File folder, @SuppressWarnings("SameParameterValue") boolean deleteSelf) {
 		return deleteFolder(folder, 0, deleteSelf);
+	}
+
+	public static void copyFile(File dest, File src) throws IOException {
+
+		if (src==null) throw new IllegalArgumentException("src file is null");
+		if (dest==null) throw new IllegalArgumentException("dest file is null");
+
+		writeStreamToStream(new FileOutputStream(dest), new FileInputStream(src), true);
+	}
+
+	public static void copyFile(String dest, String src) throws IOException {
+
+		if (src==null) throw new IllegalArgumentException("src path is null");
+		if (dest==null) throw new IllegalArgumentException("dest path is null");
+
+		copyFile(new File(dest), new File(src));
 	}
 
 
